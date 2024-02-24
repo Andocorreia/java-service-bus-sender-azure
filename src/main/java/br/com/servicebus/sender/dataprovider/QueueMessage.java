@@ -16,8 +16,11 @@ public class QueueMessage {
 				.queueName(QUEUENAME)
 				.buildClient();
 
+		ServiceBusMessage busMessage = new ServiceBusMessage(message);
+		busMessage.setContentType("application/json");
+
 		// send one message to the queue
-		senderClient.sendMessage(new ServiceBusMessage(message));
+		senderClient.sendMessage(busMessage);
 		System.out.println("Sent a single message to the queue: " + QUEUENAME);
 		senderClient.close();
 	}
