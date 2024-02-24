@@ -5,6 +5,14 @@ info:
 spring:
   profiles:
     active: local
+  jms:
+    servicebus:
+      namespace: "nsservicebustreining"
+      pricing-tier: "Standard"
+      passwordless-enabled: true
+      topic-client-id: "myclientidnamesender"
+    listener:
+      receive-timeout: 60000
 
 management:
   endpoint:
